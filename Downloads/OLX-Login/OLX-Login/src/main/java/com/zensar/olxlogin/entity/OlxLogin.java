@@ -1,0 +1,26 @@
+package com.zensar.olxlogin.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity(name="myOlx")
+@Table(name="OlxLogin")
+public class OlxLogin {
+
+	private long id;
+	private String FirstName;
+	private String LastName;
+	private String UserName;
+	private String Password;
+	private String Email;
+	private long Phone;
+	
+	
+}
