@@ -22,6 +22,6 @@ public class MasterConfig {
 
 	private ApiInfo getOlxMasterInfo() {
 		
-		return new ApiInfo("MasterOlxApplication","GetOlxMaster","5.6.6","http://www.zensar.com","AnkitaGhodake"," "," ");
+		return new ApiInfo("MasterOlxApplication","GetOlxMaster","5.6.6","http://www.zensar.com","Govardhani kola"," "," ");
 	}
 }
