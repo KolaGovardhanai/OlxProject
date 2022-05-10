@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.zensar.olxlogin.Service.OlxLoginService;
+import com.zensar.olxlogin.dto.OlxLoginDto;
 import com.zensar.olxlogin.entity.OlxLogin;
 
 @RestController
@@ -27,8 +29,43 @@ public class LoginController {
 
 	@Autowired
 	private OlxLoginService olxLoginService;
+	
+	@RequestMapping(value = "/user", method = RequestMethod.POST)
+	public ResponseEntity<OlxLoginDto> createOlxUser(@RequestBody OlxLoginDto olx, @RequestHeader("auth-token") String token) {
+		System.out.println("Hi");
+		OlxLoginDto olxResult = olxLoginService.createOlxUser(olx, token);
+		if (olxResult == null) {
+			return new ResponseEntity<OlxLoginDto>(HttpStatus.BAD_REQUEST);
+		} else {
+			return new ResponseEntity<OlxLoginDto>(olxResult, HttpStatus.CREATED);
+		}
+	}
 
-	@GetMapping(value = "/user", produces = { MediaType.APPLICATION_XML_VALUE,
+	@GetMapping("/user")
+	public List<OlxLoginDto> getAllUser(
+			@RequestParam(value = "pageNumber", defaultValue = "0", required = false) int pageNumber,
+
+			@RequestParam(value = "pageSize", defaultValue = "5", required = false) int pageSize) {
+
+		return olxLoginService.getAllUser(pageNumber, pageSize);
+
+	}
+
+	// @PostMapping
+	@RequestMapping(value = "/user/authenticate", method = RequestMethod.POST)
+	public String signInDetails(@RequestBody String userName, @RequestBody String password,
+			@RequestHeader("auth-token") String token) {
+		return olxLoginService.signInDetails(userName, password, token);
+
+	}
+
+	@DeleteMapping("/user/logout/{userId}")
+	public String deleteUser(@PathVariable Long userId) {
+		return olxLoginService.deleteUser(userId);
+
+	}
+
+	/*@GetMapping(value = "/user", produces = { MediaType.APPLICATION_XML_VALUE,
 			MediaType.APPLICATION_JSON_VALUE }, consumes = { MediaType.APPLICATION_XML_VALUE,
 					MediaType.APPLICATION_JSON_VALUE })
 	public List<OlxLogin> getAllUsers(@RequestHeader("userName") String username,
@@ -64,5 +101,5 @@ public class LoginController {
 		// return user.getUsername()+"\n"+user.getPassword();
 		return olxLoginService.loginUser(user);
 
-	}
+	}*/
 }
