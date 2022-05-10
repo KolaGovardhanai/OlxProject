@@ -1,4 +1,4 @@
-package com.zensar.master.config;
+/*package com.zensar.master.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,4 +23,4 @@ public class SwaggerConfig {
 		return new ApiInfo("Master Management", "This application manages stocks", "1.0.0", "http://www.zensar.com", "Govardhani","apache", "https://apache.org/licenses/");
 	}
 
-}
+}*/
