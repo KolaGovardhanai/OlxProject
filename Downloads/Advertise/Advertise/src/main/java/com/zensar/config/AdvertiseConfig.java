@@ -1,4 +1,4 @@
-/*package com.zensar.config;
+package com.zensar.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,17 +9,20 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
 @Configuration
-public class SwaggerConfig {
+public class AdvertiseConfig {
 	@Bean
-	public Docket getCustomizedDocket() {
-		return new Docket(DocumentationType.SWAGGER_2)
-				.select()
+	public Docket getDocket() {
+		return new Docket(DocumentationType.SWAGGER_2).select()
 				.apis(RequestHandlerSelectors.basePackage("com.zensar"))
 				.build()
-				.apiInfo(getApiInfo());
+				.apiInfo(getOlxAddInfo());
+				
+		
 	}
 
-	private ApiInfo getApiInfo() {
-		return new ApiInfo("Advertise Management", "This application manages advertises", "1.0.0", "http://www.zensar.com", "Govardhani","apache", "https://apache.org/licenses/");
+	private ApiInfo getOlxAddInfo() {
+		
+		return new ApiInfo("AdvertiseApplication","GetOlxAdvertise","5.6.6","http://www.zensar.com","Govardhani kola"," "," ");
 	}
-}*/
+
+}

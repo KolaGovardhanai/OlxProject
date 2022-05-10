@@ -1,6 +1,5 @@
-package com.zensar.entity;
+package com.zensar.dto;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -9,11 +8,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Advertise {
+public class OlxAddDto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
@@ -21,9 +19,8 @@ public class Advertise {
 	private int price;
 	private String category;
 	private String description;
-	private String username;
+	private String userName;
 	private int createdDate;
 	private int modifiedDate;
 	private String status;
-
 }
