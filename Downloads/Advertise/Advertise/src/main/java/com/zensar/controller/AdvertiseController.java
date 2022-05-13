@@ -20,10 +20,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.zensar.dto.OlxAddDto;
 import com.zensar.entity.Advertise;
 import com.zensar.service.OlxAdvertise;
+
 @RestController
 public class AdvertiseController {
 	@Autowired
 	private OlxAdvertise olxAdvertise;
+
 	@RequestMapping(value = "/advertise", method = RequestMethod.POST)
 	public ResponseEntity<OlxAdvertise> createOlxUser(@RequestBody OlxAddDto olx,
 			@RequestHeader("auth-token") String token) {
@@ -57,37 +59,5 @@ public class AdvertiseController {
 		return olxAdvertise.deleteUser(id);
 
 	}
-	
-	/*@GetMapping(value="/advertises",produces= {MediaType.APPLICATION_XML_VALUE,MediaType.APPLICATION_JSON_VALUE} )
-	public List<Advertise> getAllUsers(@RequestHeader("userName") String userName,@RequestHeader("password") String password)
-	 { 
-		return olxAdvertise.getAllUsers(userName, password);
-	}
-	@GetMapping
-	@RequestMapping(value = "/user/advertise", method = RequestMethod.GET)
-	public List<Advertise> getAllCategories(@RequestHeader("userName") String username,@RequestHeader("password") String password) {
-	return olxAdvertise.getAllCategories(username, password);
-	}
-    @RequestMapping(value="/user/advertise/{Id}", method=RequestMethod.GET)
-	public Advertise getSpecificAdvertisement(@PathVariable("Id") long id,@RequestHeader("userName") String username,@RequestHeader("password") String password) {
-	
-	return olxAdvertise.getSpecificAdvertisement(id, username, password);
-	}
 
-	@DeleteMapping("/user/advertise/{Id}")
-	public boolean deleteSpecificAdvertise(@PathVariable("Id") long id,@RequestHeader("userName") String username,@RequestHeader("password") String password) { if(username.equals("anand")&&password.equals("anand123")) 
-	{
-     return olxAdvertise.deleteSpecificAdvertise(id, username, password);
-	}
-	return false;
-	}
-
-	@GetMapping(value="/advertise/search",produces= {MediaType.APPLICATION_XML_VALUE,MediaType.APPLICATION_JSON_VALUE} )
-	public List<Advertise> searchAdvertise() {
-	return olxAdvertise.searchAdvertise();
-    }
-	@GetMapping(value="/advertise/{postId}",produces= {MediaType.APPLICATION_XML_VALUE,MediaType.APPLICATION_JSON_VALUE})
-	public List<Advertise> advertiseDetails(@PathVariable("postId") long id,@RequestHeader("userName") String username, @RequestHeader("password") String password) {
-	return olxAdvertise.advertiseDetails(id, username, password);
-	}*/
 }
