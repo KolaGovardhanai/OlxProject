@@ -16,6 +16,6 @@ public class MasterDto {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String category;
-	  private int statusId;
-	  private String status;
+	private int statusId;
+	private String status;
 }

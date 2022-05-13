@@ -15,39 +15,31 @@ import com.zensar.master.dto.MasterDto;
 import com.zensar.master.entity.Category;
 import com.zensar.master.entity.Status;
 import com.zensar.master.service.MasterService;
+
 @RestController
 public class MasterController {
-	
+
 	@Autowired
 	private MasterService masterService;
-	
+
 	@RequestMapping(value = "/advertise/category", method = RequestMethod.GET)
-	public List<MasterDto> getAllAdd(@RequestParam(value = "pageNumber", defaultValue = "0", required = false) int pageNumber,
+	public List<MasterDto> getAllAdd(
+			@RequestParam(value = "pageNumber", defaultValue = "0", required = false) int pageNumber,
 
 			@RequestParam(value = "pageSize", defaultValue = "5", required = false) int pageSize) {
 
-		return masterService.getAllAdd(pageNumber,pageSize);
+		return masterService.getAllAdd(pageNumber, pageSize);
 
 	}
 
 	@RequestMapping(value = "/advertise/status", method = RequestMethod.GET)
-	public List<MasterDto> getStatusList(@RequestParam(value = "pageNumber", defaultValue = "0", required = false) int pageNumber,
+	public List<MasterDto> getStatusList(
+			@RequestParam(value = "pageNumber", defaultValue = "0", required = false) int pageNumber,
 
 			@RequestParam(value = "pageSize", defaultValue = "5", required = false) int pageSize) {
 
-		return masterService.getStatusList(pageNumber,pageSize);
+		return masterService.getStatusList(pageNumber, pageSize);
 
 	}
-	/*@GetMapping(value="/advertise/category",produces= {MediaType.APPLICATION_XML_VALUE,MediaType.APPLICATION_JSON_VALUE})
-	public List<Category> getAllAdvertisementCategories() {
-	return masterService.getAllAdverticeCategories();
-	}
-
-
-
-	@GetMapping(value="/advertise/status",produces= {MediaType.APPLICATION_XML_VALUE,MediaType.APPLICATION_JSON_VALUE} )
-	public List<Status> getAllAdvertisementStatus(){
-	return masterService.getAllAdvertisementStatus();
-	}*/
 
 }
