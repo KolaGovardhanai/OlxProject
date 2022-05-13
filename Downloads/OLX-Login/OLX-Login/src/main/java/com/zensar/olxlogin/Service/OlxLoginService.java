@@ -6,15 +6,14 @@ import com.zensar.olxlogin.dto.OlxLoginDto;
 import com.zensar.olxlogin.entity.OlxLogin;
 
 public interface OlxLoginService {
-	List<OlxLoginDto> getAllUser(int pageNumber,int pageSize);
+	List<OlxLoginDto> getAllUser(int pageNumber, int pageSize);
 
 	String signInDetails(String userName, String password, String token);
 
 	OlxLoginDto createOlxUser(OlxLoginDto olx, String token);
 
 	String deleteUser(Long userId);
-	List<OlxLoginDto> findOlxByName(String name);
-	
-	
-	}
 
+	List<OlxLoginDto> findOlxByName(String name);
+
+}

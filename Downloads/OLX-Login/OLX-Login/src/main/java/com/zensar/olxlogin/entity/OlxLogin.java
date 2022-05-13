@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 //@Entity(name="myOlx")
-@Table(name="OlxLogin")
+@Table(name = "OlxLogin")
 public class OlxLogin {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,6 +26,5 @@ public class OlxLogin {
 	private String Password;
 	private String Email;
 	private long Phone;
-	
-	
+
 }

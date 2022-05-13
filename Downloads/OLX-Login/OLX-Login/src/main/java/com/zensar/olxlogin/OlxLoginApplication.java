@@ -10,7 +10,7 @@ public class OlxLoginApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(OlxLoginApplication.class, args);
-		
+
 		OlxLogin login = new OlxLogin();
 		login.getFirstName();
 		login.getLastName();
@@ -19,8 +19,7 @@ public class OlxLoginApplication {
 		login.getEmail();
 		login.getPhone();
 		login.setPhone(10L);
-		
-		
+
 	}
 
 }

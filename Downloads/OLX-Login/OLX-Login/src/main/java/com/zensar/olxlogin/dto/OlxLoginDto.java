@@ -1,7 +1,5 @@
 package com.zensar.olxlogin.dto;
 
-
-
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,5 +22,5 @@ public class OlxLoginDto {
 	private String Password;
 	private String Email;
 	private long Phone;
-	
+
 }

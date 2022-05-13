@@ -12,15 +12,13 @@ import springfox.documentation.spring.web.plugins.Docket;
 public class SwaggerConfig {
 	@Bean
 	public Docket getCustomizedDocket() {
-		return new Docket(DocumentationType.SWAGGER_2)
-				.select()
-				.apis(RequestHandlerSelectors.basePackage("com.zensar.olxlogin"))
-				.build()
-				.apiInfo(getApiInfo());
+		return new Docket(DocumentationType.SWAGGER_2).select()
+				.apis(RequestHandlerSelectors.basePackage("com.zensar.olxlogin")).build().apiInfo(getApiInfo());
 	}
 
 	private ApiInfo getApiInfo() {
-		return new ApiInfo("OlxLogin Management", "This application manages logins", "1.0.0", "http://www.zensar.com", "Govardhani","apache", "https://apache.org/licenses/");
+		return new ApiInfo("OlxLogin Management", "This application manages logins", "1.0.0", "http://www.zensar.com",
+				"Govardhani", "apache", "https://apache.org/licenses/");
 	}
 
 }
